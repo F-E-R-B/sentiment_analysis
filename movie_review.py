@@ -60,3 +60,14 @@ cm = confusion_matrix(y_test, y_pred)
 from sklearn.model_selection import cross_val_score
 accuracy_dt = cross_val_score(estimator = dt_classifier, X= X_tsvd, y= y, cv= 10).mean()
 
+from xgboost import XGBClassifier
+xg_classifier = XGBClassifier()
+xg_classifier.fit(X_train, y_train)
+
+y_pred = xg_classifier.predict(X_test)
+from sklearn.metrics import confusion_matrix
+cm = confusion_matrix(y_test, y_pred)
+
+y_pred = xg_classifier.predict(X_test)
+from sklearn.metrics import confusion_matrix
+cm = confusion_matrix(y_test, y_pred)
